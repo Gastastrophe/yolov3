@@ -6,7 +6,7 @@ from utils.utils import *
 size = sys.argv[3]
 model_name = sys.argv[2]
 model = Darknet('cfg/'+model_name, (size, size))
-weights = 'weights/'sys.argv[1]
+weights = 'weights/'+sys.argv[1]
 device = torch_utils.select_device('0')
 if weights.endswith('.pt'):  # pytorch format
     model.load_state_dict(torch.load(weights, map_location=device)['model'])
